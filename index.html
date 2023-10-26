@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Electric Vehicles - Maryland LCV</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1s;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h1 {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 1s infinite;
+        }
+
+          /* Branding Colors */
+          :root {
+            --primary-blue: #004F70;
+            --primary-green: #81D4AF;
+            --secondary-teal: #1E929E;
+            --secondary-lightblue: #93D1E3;
+            --secondary-purple: #665898;
+            --secondary-coral: #E17262;
+            --secondary-gold: #F5C04F;
+        }
+
+        /* Modern Button Styles */
+        .cta-button {
+            background-color: var(--primary-blue);
+            border: none;
+            padding: 12px 25px;
+            color: white;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-green);
+            box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+            color: white;
+            transform: translateY(-7px);
+        }
+
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        /* #benefits {
+        padding: 50px 0;
+        background-color: #f4f4f4;
+        text-align: center;
+    } */
+
+    .combined-bg {
+        background: linear-gradient(rgba(128, 128, 128, 0.6), rgba(128, 128, 128, 0.6)), url('https://www.mdlcv.org/wp-content/uploads/2023/10/backgroundroad.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    #benefits, #interactive-slider {
+        padding: 50px 0;
+        text-align: center;
+        background-color: transparent; /* Make sure it doesn't override the combined background */
+    }
+
+    
+
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .benefit-item img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .benefit-item h3 {
+        font-size: 1.5em;
+        margin: 10px 0;
+    }
+
+    .benefit-item p {
+        font-size: 1em;
+        color: #666;
+    }
+
+    @media (max-width: 768px) {
+        .benefits-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Interactive Slider Styles */
+/* Interactive Slider Styles */
+#interactive-slider {
+    padding: 50px 0;
+    background-color: #f4f4f4;
+}
+
+.slider-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.slide {
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.slide img {
+    max-width: 50%; /* Reduced the width to 50% */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: block; /* Center the image */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slide h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.slide p {
+    font-size: 16px;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <img src="https://www.mdlcv.org/wp-content/uploads/2023/10/electric.jpg" alt="Electric vehicles on a lively street">
+        <!-- <img src="https://www.mdlcv.org/wp-content/uploads/2023/10/free-photo-of-close-up-of-electric-car.jpg" alt="Close-up of electric car">
+        <img src="https://www.mdlcv.org/wp-content/uploads/2023/10/electric-car-charging-station-e-car-battery-cable-socket-1461031-pxhere.com_-scaled.jpg" alt="Electric car charging station"> -->
+        <!-- <div class="overlay"></div> -->
+        <!-- <h1>The Future is Electric</h1> -->
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </div>
+<!-- jQuery first, then Slick --> 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Hero image slider
+            let images = document.querySelectorAll('.hero img');
+            let currentImage = 0;
+            images[currentImage].style.opacity = 1;
+            setInterval(() => {
+                images[currentImage].style.opacity = 0;
+                currentImage = (currentImage + 1) % images.length;
+                images[currentImage].style.opacity = 1;
+            }, 5000);
+
+            // Initialize the Slick slider
+            $('.slider-container').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: true,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false,
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+
+<div class="combined-bg"></div>
+<!-- Benefits of Electric Vehicles Section -->
+<section id="benefits">
+    <h2>Benefits of Electric Vehicles</h2>
+    <div class="benefits-grid">
+        <!-- Benefit 1: What are Electric Vehicles? -->
+        <div class="benefit-item">
+            <i class="fas fa-car-battery" style="color: var(--primary-blue); font-size: 50px;"></i>
+            <h3>Electric Vehicles</h3>
+            <p>Electric Vehicles (EVs) run purely on electric power from batteries. EVs have a range of 250-500 miles (depending on make and model), emitting no tailpipe pollutants.</p>
+        </div>
+        
+        <!-- Benefit 2: Why Drive an Electric Vehicle? -->
+        <div class="benefit-item">
+            <i class="fas fa-dollar-sign" style="color: var(--secondary-gold); font-size: 50px;"></i>
+            <h3>Why Choose EVs?</h3>
+            <p>EVs are Zero Emission Vehicles (ZEVs) reducing pollution. They're cost-effective, with electricity being cheaper than gasoline and lower maintenance costs.</p>
+        </div>
+        
+        <!-- Benefit 3: EV Charging & Incentives -->
+        <div class="benefit-item">
+            <i class="fas fa-charging-station" style="color: var(--secondary-teal); font-size: 50px;"></i>
+            <h3>Charging & Incentives</h3>
+            <p>Get up to $7,500 federal tax credit and $3,000 Maryland credit on EVs. Maryland offers up to $700 rebates for EV charging equipment. Enjoy HOV lane access and special charging rates.</p>
+        </div>
+    </div>
+    <style>
+        .benefit-item {
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .benefit-item:hover {
+            transform: scale(1.05);
+        }
+    </style>
+    <script>
+        gsap.from(".benefit-item", {
+            duration: 0.5,
+            opacity: 0,
+            y: -50,
+            stagger: 0.3,
+            delay: 0.2,
+            ease: "back.out(1.7)"
+        });
+    </script>
+</section>
+
+
+<!-- Interactive Slider Section -->
+<section id="interactive-slider">
+    <h2 style="text-align: center">Discover Electric Vehicles</h2>
+    <div class="slider-container">
+        <!-- Slide 1: Introduction to Electric -->
+        <div class="slide">
+            <img src="https://www.mdlcv.org/wp-content/uploads/2023/10/electricplugged.jpg" alt="Introduction to Electric">
+            <div class="text-overlay">
+            <h3>Introduction to Electric</h3>
+            <p>Electric vehicles (EVs) are powered by electric motors using energy from batteries. They produce fewer emissions than conventional vehicles and come in various types, some running solely on electricity and others combining electricity with gasoline engines.</p>
+            </div>
+        </div>
+        
+        <!-- Slide 2: Why consider going electric? -->
+        <div class="slide">
+            <img src="https://www.mdlcv.org/wp-content/uploads/2023/10/benefits.jpg" alt="Why consider going electric?">
+            <h3>Why consider going electric?</h3>
+            <p>Electric vehicles offer numerous benefits including lower fuel costs, tax incentives, reduced maintenance, and positive environmental impacts.</p>
+        </div>
+        
+        <!-- Slide 3: Savings -->
+        <div class="slide">
+            <img src="https://www.mdlcv.org/wp-content/uploads/2023/10/money1.jpg" alt="Savings">
+            <h3>Savings</h3>
+            <p>Driving an EV can lead to significant savings. Electricity costs are consistently lower than gasoline, and EVs are more fuel efficient. Maintenance costs for EVs are also typically lower than conventional vehicles.</p>
+        </div>
+        
+        <!-- Slide 4: Incentives -->
+        <div class="slide">
+            <img src="https://www.mdlcv.org/wp-content/uploads/2023/10/roadmd.jpg" alt="Incentives">
+            <h3>Incentives</h3>
+            <p>There are various state and federal tax incentives for purchasing EVs. Maryland offers vehicle vouchers, equipment rebates, and free travel on HOV lanes for EVs.</p>
+        </div>
+
+        <!-- Slide 5: Charging -->
+        <div class="slide">
+            <img src="https://www.mdlcv.org/wp-content/uploads/2023/10/six.jpg" alt="Charging">
+            <h3>Charging</h3>
+            <p>There are multiple charging options available, including Level 1 and Level 2 chargers and DC Fast Charge stations. Maryland has over 500 public charging stations, making it convenient to charge your EV.</p>
+        </div>
+        
+        <!-- Slide 6: Environment -->
+        <div class="slide">
+            <img src="https://www.mdlcv.org/wp-content/uploads/2023/10/happy.jpg" alt="Environment">
+            <h3>Environment</h3>
+            <p>EVs are environmentally friendly, producing no tailpipe emissions. They play a crucial role in reducing greenhouse gas emissions, helping Maryland achieve its emissions reduction goals.</p>
+        </div>
+    </div>
+</section>
+<!-- Myths vs. Facts Section -->
+<section id="myths-facts">
+    <h2>Myths vs. Facts</h2>
+    
+    <div class="myth-fact-slider">
+        <!-- Myth vs Fact Pair 1 -->
+        <div class="myth-fact-pair">
+            <div class="myth box">
+                <h3>MYTH</h3>
+                <i class="myth-icon fas fa-exclamation-triangle"></i>
+                <p style="font-size: 20px;">Electric Vehicles don't have enough range.</p>
+                
+            </div>
+            <div class="fact box">
+                <h3>FACT</h3>
+                <i class="fact-icon fas fa-check-circle"></i>
+                <p style="font-size: 20px;">Modern EVs can travel up to 500 miles on a single charge, suitable for daily commutes and road trips.</p>
+                <a href="https://www.bloomberg.com/news/articles/2023-03-09/average-range-for-us-electric-cars-reached-a-record-291-miles">Learn more</a>
+            </div>
+        </div>
+        
+        <!-- Myth vs Fact Pair 2 -->
+        <!-- (Note: The content is the same as Pair 1. You might want to update this.) -->
+        <div class="myth-fact-pair">
+            <div class="myth box">
+                <h3>MYTH</h3>
+                <i class="myth-icon fas fa-exclamation-triangle"></i>
+                <p style="font-size: 20px;">Electric vehicles are worse for the climate than gasoline cars due to power plant emissions.</p>
+            </div>
+            <div class="fact box">
+                <h3>FACT</h3>
+                <i class="fact-icon fas fa-check-circle"></i>
+                <p style="font-size: 20px;">EVs have a smaller carbon footprint than gas cars, even when accounting for the electricity used for charging.</p>
+                <a href="https://www.epa.gov/greenvehicles/electric-vehicle-myths#Myth1">Learn more</a>
+            </div>
+        </div>
+        
+<!-- Myth #3: The increase in electric vehicles entering the market will collapse the U.S. power grid. -->
+<div class="myth-fact-pair">
+            <div class="myth box">
+                <h3>MYTH</h3>
+                <i class="myth-icon fas fa-exclamation-triangle"></i>
+                <p style="font-size: 20px;">The increase in electric vehicles entering the market will collapse the U.S. power grid.</p>
+            </div>
+            <div class="fact box">
+                <h3>FACT</h3>
+                <i class="fact-icon fas fa-check-circle"></i>
+                <p style="font-size: 20px;">EVs have charging strategies that can prevent overloading the grid and can even support grid reliability.</p>
+                <a href="https://www.epa.gov/greenvehicles/electric-vehicle-myths#Myth3">Learn more</a>
+            </div>
+        </div>
+        <!-- Myth #4: There is nowhere to charge. -->
+<div class="myth-fact-pair">
+    <div class="myth box">
+        <h3>MYTH</h3>
+        <i class="myth-icon fas fa-exclamation-triangle"></i>
+        <p style="font-size: 20px;">There is nowhere to charge.</p>
+    </div>
+    <div class="fact box">
+        <h3>FACT</h3>
+        <i class="fact-icon fas fa-check-circle"></i>
+        <p style="font-size: 20px;">EVs can be plugged into standard outlets, and there are over 51,000 public charging stations in the U.S.</p>
+        <a href="https://www.epa.gov/greenvehicles/electric-vehicle-myths#Myth4">Learn more</a>
+    </div>
+</div>
+
+<!-- Myth #5: Electric vehicles don’t have enough range to handle daily travel demands. -->
+<div class="myth-fact-pair">
+    <div class="myth box">
+        <h3>MYTH</h3>
+        <i class="myth-icon fas fa-exclamation-triangle"></i>
+        <p style="font-size: 20px;">Electric vehicles don’t have enough range to handle daily travel demands.</p>
+    </div>
+    <div class="fact box">
+        <h3>FACT</h3>
+        <i class="fact-icon fas fa-check-circle"></i>
+        <p style="font-size: 20px;">Most EVs have a range that covers typical daily use in the U.S., with many models offering over 200 miles on a full charge.</p>
+        <a href="https://www.epa.gov/greenvehicles/electric-vehicle-myths#Myth5">Learn more</a>
+    </div>
+</div>
+<!-- Myth #6: Electric vehicles only come as sedans. -->
+<div class="myth-fact-pair">
+    <div class="myth box">
+        <h3>MYTH</h3>
+        <i class="myth-icon fas fa-exclamation-triangle"></i>
+        <p style="font-size: 20px;">Electric vehicles only come as sedans.</p>
+    </div>
+    <div class="fact box">
+        <h3>FACT</h3>
+        <i class="fact-icon fas fa-check-circle"></i>
+        <p style="font-size: 20px;">Electric vehicles now come in a variety of shapes and sizes, with over 50 PHEV and EV models available.</p>
+        <a href="https://www.epa.gov/greenvehicles/electric-vehicle-myths#Myth6">Learn more</a>
+    </div>
+</div>
+
+<!-- Myth #7: Electric vehicles are not as safe as comparable gasoline vehicles. -->
+<div class="myth-fact-pair">
+    <div class="myth box">
+        <h3>MYTH</h3>
+        <i class="myth-icon fas fa-exclamation-triangle"></i>
+        <p style="font-size: 20px;">Electric vehicles are not as safe as comparable gasoline vehicles.</p>
+    </div>
+    <div class="fact box">
+        <h3>FACT</h3>
+        <i class="fact-icon fas fa-check-circle"></i>
+        <p style="font-size: 20px;">Electric vehicles must meet the same safety standards as conventional vehicles and have additional safety features.</p>
+        <a href="https://www.epa.gov/greenvehicles/electric-vehicle-myths#Myth7">Learn more</a>
+    </div>
+</div>
+    </div>
+    
+</section>
+
+<!-- CSS for the Myths vs. Facts Section -->
+<style>
+    #myths-facts {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.myth-fact-slider {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.myth-fact-pair {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px; /* Adjusted gap for space between boxes */
+}
+
+.box {
+    flex: 0 0 48%; /* Adjusted flex properties to take up nearly half the container width */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: transform 0.3s, background-color 0.3s;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.box:hover {
+    transform: translateY(0) scale(1.05);
+}
+
+.myth-icon, .fact-icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+
+.myth {
+    background-color: #ffe6e6; /* Light red background */
+}
+
+.myth:hover {
+    background-color: #ffc2c2; /* Darker red on hover */
+}
+
+.fact {
+    background-color: #e6ffe6; /* Light green background */
+}
+
+.fact:hover {
+    background-color: #c2ffc2; /* Darker green on hover */
+}
+
+.myth:hover .myth-icon, .fact:hover .fact-icon {
+    transform: scale(1.1);
+}
+
+</style>
+
+<!-- JavaScript for the Entrance Animation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script>
+
+    $(document).ready(function() {
+        $('.myth-fact-slider').slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            adaptiveHeight: true,
+            arrows: true,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+    });
+</script>
+
+<!-- Environmental Impact Section -->
+<section id="environmental-impact">
+    <h2>Environmental Impact of Electric Vehicles</h2>
+    <p>Switching to Electric Vehicles is not just about innovation; it's about making our planet a better place for future generations.</p>
+    
+    <div class="infographics">
+        <!-- Carbon Emissions Saved -->
+        <div class="info-item">
+            <img src="https://www.mdlcv.org/wp-content/uploads/2023/10/comparison.jpg" alt="Energy Conservation">
+            <div class="counter" data-count="1000000">4.6</div>
+            <p>Metric Tons of CO<sub>2</sub> Saved Annually Per Electric Vehicle<sup><a href="https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle" target="_blank">1</a></sup></p>
+        </div>
+        
+        <!-- Air Quality -->
+        <div class="info-item">
+            <img src="https://www.mdlcv.org/wp-content/uploads/2023/10/split.jpg" alt="Polluted City">
+            <!-- <img src="path-to-after-image.jpg" alt="Clean City"> -->
+            <p>Improved Air Quality</p>
+        </div>
+        
+        <!-- Energy Conservation -->
+        <div class="info-item">
+            <img src="https://www.mdlcv.org/wp-content/uploads/2023/10/citycharge.jpg" alt="Energy Conservation">
+            <p>Reduction in Fossil Fuel Consumption</p>
+        </div>
+    </div>
+    
+    <!-- Testimonials -->
+    <div class="testimonials">
+        <!-- <blockquote>
+            "Electric Vehicles are a game-changer for the environment. The reduction in carbon emissions is significant."
+            <cite>- Dr. Jane Doe, Environmentalist</cite>
+        </blockquote> -->
+    </div>
+    
+    <!-- Call to Action -->
+    <div class="cta">
+        <p>Ready to make a difference? Learn more about the benefits of EVs and join the revolution.</p>
+        <a href="https://www.mdlcv.org/sign-up" class="cta-button">Sign up to Learn More</a>
+    </div>
+</section>
+
+
+    </div>
+    
+
+</section>
+
+
+<!-- CSS for the Testimonials Section -->
+<style>
+    #testimonials {
+        padding: 50px 0;
+        background-color: #f9f9f9;
+        text-align: center;
+    }
+
+    .testimonial-slider {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .testimonial {
+        display: none; /* Initially hide all testimonials */
+        padding: 20px;
+    }
+
+    .testimonial img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+
+    .testimonial blockquote {
+        font-style: italic;
+        border-left: 4px solid #00aaff;
+        padding-left: 20px;
+        margin: 20px 0;
+    }
+
+    .prev, .next {
+        background-color: #00aaff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .prev:hover, .next:hover {
+        background-color: #0088cc;
+    }
+</style>
+
+<!-- JavaScript for the Testimonials Slider -->
+<script>
+    let currentTestimonial = 0;
+    let testimonials = document.querySelectorAll('.testimonial');
+
+    // Initially show the first testimonial
+    testimonials[currentTestimonial].style.display = 'block';
+
+    document.querySelector('.prev').addEventListener('click', function() {
+        testimonials[currentTestimonial].style.display = 'none';
+        currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+        testimonials[currentTestimonial].style.display = 'block';
+    });
+
+    document.querySelector('.next').addEventListener('click', function() {
+        testimonials[currentTestimonial].style.display = 'none';
+        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        testimonials[currentTestimonial].style.display = 'block';
+    });
+</script>
+<!-- CSS for the Environmental Impact Section -->
+<style>
+    #environmental-impact {
+        padding: 50px 0;
+        background-color: #e6f7ff;
+        text-align: center;
+    }
+
+    .infographics {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .info-item {
+    flex: 1;
+    margin: 20px;
+    max-width: 300px;
+}
+
+.info-item img {
+    max-width: 100%; /* This ensures the image doesn't exceed its container's width */
+    max-height: 200px; /* Adjust this value as needed */
+    display: block;
+    margin: 0 auto; /* Center the image */
+}
+
+    
+
+    .counter {
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+    .testimonials blockquote {
+        font-style: italic;
+        border-left: 4px solid #00aaff;
+        padding-left: 20px;
+        margin: 40px 0;
+    }
+
+    /* .cta-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #00aaff;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+        background-color: #0088cc;
+    } */
+</style>
+
+
+</body>
+</html>
